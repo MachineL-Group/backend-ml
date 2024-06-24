@@ -62,19 +62,16 @@ def predict():
     if best_prob > threshold:
         ymin, xmin, ymax, xmax = 0, 0, 1, 1  # Assuming whole image for simplicity
         best_result = {
+            "isDetected": True,
             'label': labels[best_index],
             'probability': float(best_prob),  # Convert to standard float
             'bounding_box': [float(ymin), float(xmin), float(ymax), float(xmax)]  # Convert to standard floats
         }
-        return jsonify({
-            "isSuccess": True,
-            "data": best_result
-        })
+        return jsonify(best_result), 200
     else:
-        return jsonify({
-            "isSuccess": False,
-            "error": 'No objects detected'
-        }), 400
+        return jsonify(
+            {"isDetected": False, 'label': None, 'probability': None, 'bounding_box': None}
+        ), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
