@@ -73,5 +73,9 @@ def predict():
             {"isDetected": False, 'label': None, 'probability': None, 'bounding_box': None}
         ), 200
 
+@app.route('/', methods=['GET'])
+def index():
+    return 'Server is running...'
+
 if __name__ == '__main__':
     app.run(debug=True)
