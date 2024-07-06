@@ -71,7 +71,7 @@ def predict():
     else:
         return jsonify(
             {"isDetected": False, 'label': None, 'probability': None, 'bounding_box': None}
-        ), 400
+        ), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
