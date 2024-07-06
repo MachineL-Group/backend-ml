@@ -53,7 +53,7 @@ def predict():
     boxes = output_data[0]
 
     # Format the results
-    threshold = 0.5  # Minimum probability threshold
+    threshold = 0.1  # Minimum probability threshold
 
     # Get the index of the highest probability
     best_index = np.argmax(boxes)
